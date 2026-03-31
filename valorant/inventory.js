@@ -115,7 +115,7 @@ export const getLoadout = async (user, account) => {
         }
     });
 
-    console.assert(req.statusCode === 200, `Valorant favorites fetch code is ${req.statusCode}!`, req);
+    console.assert(req2.statusCode === 200, `Valorant favorites fetch code is ${req2.statusCode}!`, req2);
 
     const json2 = JSON.parse(req2.body);
     if (json2.httpStatus === 400 && json2.errorCode === "BAD_CLAIMS") {

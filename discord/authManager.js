@@ -49,8 +49,8 @@ export const loginUsernamePassword = async (interaction, username, password, ope
         });
 
         if(operationIndex !== null) {
-            const index = failedOperations.findIndex(o => o.index === operationIndex);
-            if(index > -1) failedOperations.splice(operationIndex, 1);
+            const index = failedOperations.findIndex(o => o.c === operationIndex);
+            if(index > -1) failedOperations.splice(index, 1);
         }
     } else if(login.error) {
         console.error(`${interaction.user.tag} login error`);

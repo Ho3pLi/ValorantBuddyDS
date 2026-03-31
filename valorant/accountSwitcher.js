@@ -109,8 +109,10 @@ export const deleteUser = (id, accountNumber) => {
     const userToDelete = userJson.accounts[indexToDelete];
 
     userJson.accounts.splice(indexToDelete, 1);
-    if(userJson.accounts.length === 0) fs.unlinkSync("data/users/" + id + ".json");
-    else if(userJson.currentAccount > userJson.accounts.length) userJson.currentAccount = userJson.accounts.length;
+    if(userJson.accounts.length === 0) {
+        fs.unlinkSync("data/users/" + id + ".json");
+        return userToDelete.username;
+    } else if(userJson.currentAccount > userJson.accounts.length) userJson.currentAccount = userJson.accounts.length;
 
     saveUserJson(id, userJson);
 
@@ -180,4 +182,3 @@ export const removeDupeAccounts = (id, json=readUserJson(id)) => {
 
     return json;
 }
-

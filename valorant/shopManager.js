@@ -12,8 +12,7 @@ export const fetchShop = async (interaction, user, targetId=interaction.user.id,
     const emojiPromise = VPEmoji(interaction, channel);
     const KCEmojiPromise = KCEmoji(interaction, channel)
 
-    let shop = await getOffers(targetId);
-    if(shop.inQueue) shop = await waitForShopQueueResponse(shop);
+    const shop = await getOffers(targetId);
 
     user = getUser(user);
     if(accessory === "daily" || !accessory) {
@@ -37,8 +36,7 @@ export const fetchBundles = async (interaction) => {
     const channel = interaction.channel || await fetchChannel(interaction.channelId);
     const emojiPromise = VPEmoji(interaction, channel);
 
-    let bundles = await getBundles(interaction.user.id);
-    if(bundles.inQueue) bundles = await waitForShopQueueResponse(bundles);
+    const bundles = await getBundles(interaction.user.id);
 
     return await renderBundles(bundles, interaction, await emojiPromise);
 }
@@ -47,8 +45,7 @@ export const fetchNightMarket = async (interaction, user) => {
     const channel = interaction.channel || await fetchChannel(interaction.channelId);
     const emojiPromise = VPEmoji(interaction, channel);
 
-    let market = await getNightMarket(interaction.user.id);
-    if(market.inQueue) market = await waitForShopQueueResponse(market);
+    const market = await getNightMarket(interaction.user.id);
 
     return await renderNightMarket(market, interaction, user, await emojiPromise);
 }
