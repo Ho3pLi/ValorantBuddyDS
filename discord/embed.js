@@ -888,7 +888,7 @@ export const botInfoEmbed = (interaction, client, guildCount, userCount, registe
         },
         {
             name: s(interaction).info.INFO_SOURCE,
-            value: "[SkinPeek](https://github.com/giorgi-o/SkinPeek) by [Giorgio](https://github.com/giorgi-o)",
+            value: "Original project: [SkinPeek](https://github.com/giorgi-o/SkinPeek) by [Giorgio](https://github.com/giorgi-o). This deployment uses a custom fork with additional changes by [Ho3pLi](https://github.com/Ho3pLi/ValorantBuddyDS).",
             inline: true
         }
     ];
